@@ -10,7 +10,7 @@ with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
 
 name='Steppenwolf'
 user='eddo888'
-version = '1.1'
+version='1.1'
 
 setup(
 	name=name,
