@@ -14,8 +14,14 @@ token=squirrel.get('%s:%s'%(hostname, tokenname))
 
 gh = Github(token)
 
+dirname=os.path.basename(os.getcwd())
+print(dirname)
+
 for repo in gh.get_user().get_repos():
-	print(repo.name)
+	if repo.name == dirname:
+		print(repo)
+			
+		
 
 
 	
