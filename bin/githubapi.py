@@ -53,20 +53,29 @@ class GitHubAPI(object):
 		repo = self.github.get_user().get_repo(repo_name)
 		print('repository found = %s'%repo.name)
 
+		found = None
 		for tag in repo.get_tags():
 			if tag.name == new_tag:
-				print('existing tag = %s'%tag.name)
-				return
+				found = tag
+				break
 
-		head = repo.get_commits()[0]
-		print('using commit sha = %s'%head.sha)
+		if found:
+			tag = found
+			print('existing tag = %s'%tag.name)
+			sha = tag.commit.sha
+		else:
+			head = repo.get_commits()[0]
+			print('using commit sha = %s'%head.sha)
 			  
-		tag = repo.create_git_tag(new_tag, tag_message or new_tag, head.sha, 'commit')
-		print('created tag = %s'%tag.tag)
+			tag = repo.create_git_tag(new_tag, tag_message or new_tag, head.sha, 'commit')
+			print('created tag = %s'%tag.tag)
+			sha = tag.sha
+                        
+			ref = repo.create_git_ref('refs/tags/%s'%tag.tag, tag.sha)
 
-		ref = repo.create_git_ref('refs/tags/%s'%tag.tag, tag.sha)
-		
-				
+		release = repo.create_git_release(new_tag, new_tag, tag_message or new_tag,)
+		print('release created = %s'%release.title)
+
 
 if __name__ == '__main__': args.execute()
 
