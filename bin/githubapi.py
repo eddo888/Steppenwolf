@@ -64,6 +64,7 @@ class GitHubAPI(object):
 		tag = repo.create_git_tag(new_tag, tag_message or new_tag, head.sha, 'commit')
 		print('created tag = %s'%tag.tag)
 
+		ref = repo.create_git_ref('refs/tags/%s'%tag.tag, tag.sha)
 		
 				
 
