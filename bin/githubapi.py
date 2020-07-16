@@ -29,7 +29,7 @@ class GitHubAPI(object):
 	@args.operation
 	def list(self):
 		for repo in self.github.get_user().get_repos():  
-			print(repo.name)
+			print(repo.full_name)
 
 			
 	@args.operation
