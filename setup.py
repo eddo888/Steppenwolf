@@ -10,7 +10,7 @@ with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
 
 name='Steppenwolf'
 user='eddo888'
-version='1.2'
+version='1.3'
 
 setup(
 	name=name,
@@ -32,6 +32,28 @@ setup(
 	],
 	scripts=[
 		"bin/githubapi.py", 
+		"bin/gitrevert.sh",
+		"bin/gitadd.sh",
+		"bin/gitpush.sh",
+		"bin/gitinit.sh",
+		"bin/gitmove.sh",
+		"bin/gitdiff.sh",
+		"bin/gitorigin.sh",
+		"bin/gitkey.sh",
+		"bin/githubinit.sh",
+		"bin/gitstatus.sh",
+		"bin/gitmerge.sh",
+		"bin/githubget.sh",
+		"bin/gitupload.sh",
+		"bin/gitpull.sh",
+		"bin/gitget.sh",
+		"bin/gitlist.sh",
+		"bin/gitremove.sh",
+		"bin/githubflow.sh",
+		"bin/gitbranch.sh",
+		"bin/gitcommit.sh",
+		"bin/gittime.sh",
+		"bin/gittree.sh",
 	], 
 )
 
