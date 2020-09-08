@@ -10,7 +10,7 @@ with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
 
 name='Steppenwolf'
 user='eddo888'
-version='1.3'
+version='1.4'
 
 setup(
 	name=name,
@@ -24,6 +24,7 @@ setup(
 	author_email='eddo888@tpg.com.au',
 	packages=[name],
 	install_requires=[
+		'twine',
 		'PyGithub',
 		'Baubles',
 		'Perdy',
@@ -31,7 +32,8 @@ setup(
 		'Spanners',
 	],
 	scripts=[
-		"bin/githubapi.py", 
+		"bin/githubapi.py",
+		"bin/pypi.sh",
 		"bin/gitrevert.sh",
 		"bin/gitadd.sh",
 		"bin/gitpush.sh",
