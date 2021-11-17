@@ -18,7 +18,7 @@ class GitHubAPI(object):
 	@args.property(default='github.com')
 	def hostname(self): return
 
-	@args.property(default='rescript')
+	@args.property(default='pypi')
 	def tokename(self): return
 
 	def __init__(self):
