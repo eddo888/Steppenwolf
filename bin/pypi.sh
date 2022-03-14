@@ -14,8 +14,8 @@ package=$(ls -rt dist/*.tar.gz | tail -1)
 
 echo $package
 
-username='eddo888'
-password=$(squirrel.py get eddo888@pypi.org)
+username='__token__'
+password=$(squirrel.py get ${username}@pypi.org)
 
 twine upload -u "$username" -p "$password" "$package"
 
