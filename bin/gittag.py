@@ -6,7 +6,7 @@ result = subprocess.Popen(['git','tag'], stdout=subprocess.PIPE)
 
 class Tags:
 
-	def __init__(self, value=None):
+	def __init__(self, value=''):
 		self.value = value
 		self.children = list()
 
@@ -18,21 +18,22 @@ class Tags:
 		for _child in self.children:
 			if _child.value == value:
 				child = _child
-				print(f'{indent}={child.value}')
+				#print(f'{indent}={child.value}')
 				break
 		if not child:
 			child = Tags(value=value)
-			print(f'{indent}+{child.value}')
+			#print(f'{indent}+{child.value}')
 			self.children.append(child)
 
 		if len(parts) > 1:
 			remainder = '.'.join(parts[1:])
 			child.bury(remainder, indent=f'\t{indent}')
 		
-	def dig(self, indent=''):
-		print(f'{indent}{self.value}')
+	def dig(self, prefix=''):
+		if len(self.children) == 0:
+			print(f'{prefix}{self.value}'.lstrip('.'))
 		for child in sorted(self.children, key=lambda x: x.value):
-			child.dig(indent=f'\t{indent}')
+			child.dig(prefix=f'{prefix}{self.value}.')
 
 		
 tags = Tags()
@@ -42,10 +43,4 @@ for tag in result.stdout.readlines():
 	tags.bury(tag)
 
 
-#tags.dig()
-
-print(tags.value)
-for child in tags.children:
-	print(f'\t{child.value}')
-	for grand in child.children:
-		print(f'\t\t{grand.value}')
+tags.dig()

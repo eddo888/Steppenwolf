@@ -54,6 +54,7 @@ setup(
 		"bin/githubflow.sh",
 		"bin/gitbranch.sh",
 		"bin/gitcommit.sh",
+		"bin/gittag.py",
 		"bin/gittime.sh",
 		"bin/gittree.sh",
 	], 
