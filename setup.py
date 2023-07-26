@@ -10,7 +10,7 @@ with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
 
 name='Steppenwolf'
 user='eddo888'
-version='1.7'
+version='1.8'
 
 setup(
 	name=name,
@@ -57,6 +57,7 @@ setup(
 		"bin/gittag.py",
 		"bin/gittime.sh",
 		"bin/gittree.sh",
+		"bin/gitignore.sh",
 	], 
 )
 
