@@ -12,7 +12,10 @@ class Tags:
 
 	def bury(self, tag, indent=''):
 		parts = tag.split('.')
-		value = int(parts[0])
+		try:
+			value = int(parts[0])
+		except:
+			return
 		
 		child = None
 		for _child in self.children:
