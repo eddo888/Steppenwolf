@@ -10,7 +10,7 @@ with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
 
 name='Steppenwolf'
 user='eddo888'
-version='1.10'
+version='1.11'
 
 setup(
 	name=name,
@@ -24,6 +24,7 @@ setup(
 	author_email='eddo888@tpg.com.au',
 	packages=[name],
 	install_requires=[
+		'twine',
 		'PyGithub',
 		'Baubles',
 		'Perdy',
