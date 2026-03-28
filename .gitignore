@@ -2,3 +2,4 @@ dist
 *.egg-info
 credstash.log
 .pydevproject
+__pycache__
